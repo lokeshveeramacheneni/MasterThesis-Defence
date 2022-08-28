@@ -186,7 +186,13 @@
 \begin{frame}{Semantic3D}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            
+            \begin{itemize}
+                \item Huge 3D point cloud benchmark classification static dataset with 4 million points
+                \item Scenes are taken in european streets around church, stations and fields
+                \item Point features include XYZ, RGB and Intensity values.
+                \item It has 8 classes with distribution of points represented in Figure\ref{fig:sem3d_stats}
+                \item cite states that the scanning artefacts, hardscapes and cars are the most challenging classes
+            \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -229,7 +235,16 @@
 \begin{frame}{S3DIS}
     \begin{columns}
         \begin{column}{0.6\textwidth}
-            
+            \begin{itemize}
+                \item Indoor dataset with scans from various buildings
+                \item Dataset include scans of personal offices, restrooms, open spaces, lobbies and hallways
+                \item It has 12 classes, further subdivided into two types
+                \begin{itemize}
+                    \item structural elements 
+                    \item everyday items
+                \end{itemize}
+                \item One of the most evaluated datasets for indoor semantic segmentation
+            \end{itemize}
         \end{column}
         \begin{column}{0.4\textwidth}
             \begin{figure}
@@ -261,7 +276,12 @@
 \begin{frame}{RandLA-Net}
     \begin{columns}
         \begin{column}{0.6\textwidth}
-            
+            \begin{itemize}
+                \item Lightweight, efficient computation, meomry usage and inputs 3D point cloud directly
+                \item Random point sampling and local feature aggregation module are most important modules
+                \item Local feature aggregation module is subdivided into local spatial encoding, attentive pooling and dilated residual block
+                \item Encoder-Decoder style architecture as depicted in Figure\ref{fig:randla_model}
+            \end{itemize}
         \end{column}
         \begin{column}{0.4\textwidth}
             \begin{figure}
@@ -294,7 +314,12 @@
 \begin{frame}{Deep Ensembles}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            
+            \begin{itemize}
+                \item Ensemble learning technique - train N randomly initialized models with same data
+                \item Reulting N predictions are then averged
+                \item Perormance boosting along with uncertainty value for a prediction
+                \item Requires more computation power
+            \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -309,7 +334,13 @@
 \begin{frame}{Flipout}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            
+            \begin{itemize}
+                \item Introduced as a method to decorrelate gradients in a mini batch of examples
+                \item Add independent weight perturbations sampled from a distribution
+                \item The output of Flipout versioned neuron is 
+                
+                \item Train single instance of Flipout versioned network and then perform multiple forward passes for same input
+            \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
