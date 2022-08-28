@@ -172,66 +172,182 @@
         \item Datasets
         \item 3D Semantic Segmentation model
         \item Uncertainty methods
-        \item Evaluation methods
+        \item OOD score methods
     \end{itemize}
 \end{frame}
 \begin{frame}{3D LiDAR datasets}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.25]{images/3d_datasets.jpg}
+        \caption{caption}
+        \label{fig:datasets}
+    \end{figure}
 \end{frame}
 \begin{frame}{Semantic3D}
-    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.25]{images/sem3d/sem3d_stats.jpg}
+                \caption{caption}
+                \label{fig:sem3d_stats}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Semantic3D}
+    \begin{columns}
+        \begin{column}{0.33\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.33]{images/sem3d/sem3d_sample_1.jpg}
+                %\caption{caption}
+                %\label{fig:sem3d_sample_1}    
+            \end{figure}
+        \end{column}
+        \begin{column}{0.33\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.33]{images/sem3d/sem3d_sample_2.jpg}
+                \caption{caption}
+                \label{fig:sem3d_sample_2}    
+            \end{figure}
+        \end{column}
+        \begin{column}{0.33\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.33]{images/sem3d/sem3d_sample_3.jpg}
+                %\caption{caption}
+                %\label{fig:sem3d_sample_3}    
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 \begin{frame}{S3DIS}
-    
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.35]{images/s3dis/s3dis_sample_1.jpg}
+                \includegraphics[scale=0.35]{images/s3dis/s3dis_sample_2.jpg}
+                \caption{caption}
+                \label{fig:s3dis_sample_images}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 \begin{frame}{OOD Benchmark datasets}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.33]{images/benchmark_table.jpg}
+        \caption{caption}
+        \label{fig:benchmark_table}
+    \end{figure}
 \end{frame}
 \begin{frame}{Ingredients}
     \begin{itemize}
         \item \st{Datasets} - Semantic3D, S3DIS \& Semantic3D w/o colour
         \item 3D Semantic Segmentation model
         \item Uncertainty methods
-        \item Evaluation methods
+        \item OOD score methods
     \end{itemize}
 \end{frame}
 \begin{frame}{RandLA-Net}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.35]{images/randlanet_dires_effect.jpg}
+                \caption{caption}
+                \label{fig:dires_effect}
+            \end{figure}
+        \end{column}
+    \end{columns}
     
+\end{frame}
+\begin{frame}{RandLA-Net}
+    \begin{figure}
+        \centering
+        \includegraphics[width = 0.9\textwidth, height=0.37\textheight]{images/randlanet_dires_block.jpg}
+        \includegraphics[width = 0.9\textwidth, height=0.37\textheight]{images/randlanet_model.jpg}
+        \caption{caption}
+        \label{fig:randla_model}
+    \end{figure}
 \end{frame}
 \begin{frame}{Ingredients}
     \begin{itemize}
         \item \st{Datasets} - Semantic3D, S3DIS \& Semantic3D w/o colour
         \item \st{3D Semantic Segmentation model} - RandLA-Net
         \item Uncertainty methods
-        \item Evaluation methods
+        \item OOD score methods
     \end{itemize}
 \end{frame}
 \begin{frame}{Deep Ensembles}
-    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.5]{images/deep_ensembles.jpg}
+                \caption{caption}
+                \label{fig:deep_ensembles_work}    
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 \begin{frame}{Flipout}
-    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.5]{images/flipout.jpg}
+                \caption{caption}
+                \label{fig:flipout_work}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 \begin{frame}{Ingredients}
     \begin{itemize}
         \item \st{Datasets} - Semantic3D, S3DIS \& Semantic3D w/o colour
         \item \st{3D Semantic Segmentation model} - RandLA-Net
         \item \st{Uncertainty methods} - Deep Ensembles \& Flipout
-        \item Evaluation methods
+        \item OOD score methods
     \end{itemize}
 \end{frame}
 \begin{frame}{OOD Score calculation}
-    
-\end{frame}
-\begin{frame}{Area Under ROC curve}
-    
+    \begin{itemize}
+        \item We use the following two methods to generate the OOD scores.
+        \item Maximum Softmax Probability
+        \begin{itemize}
+            \item 
+        \end{itemize}
+        \item Entropy
+        \begin{itemize}
+            \item 
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 \begin{frame}{Ingredients}
     \begin{itemize}
         \item \st{Datasets} - Semantic3D, S3DIS \& Semantic3D w/o colour
         \item \st{3D Semantic Segmentation model} - RandLA-Net
         \item \st{Uncertainty methods} - Deep Ensembles \& Flipout
-        \item \st{Evaluation methods} - AUROC
+        \item \st{OOD score methods} - Maximum Softmax Probability \& Entropy
     \end{itemize}
 \end{frame}
 \section{Experiments \& Results}
