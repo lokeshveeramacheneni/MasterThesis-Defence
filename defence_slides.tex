@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{ragged2e}  % `\justifying` text
 \usepackage{booktabs}  % Tables
@@ -111,7 +112,7 @@
                 \item Typically, features of each point in point cloud include 
                 \begin{itemize}
                     \item spatial features (XYZ)
-                    \item Color (RGB)
+                    \item Colour (RGB)
                     \item Intensity
                 \end{itemize}
             \end{itemize}
@@ -381,7 +382,179 @@
         \item \st{OOD score methods} - Maximum Softmax Probability \& Entropy
     \end{itemize}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%        Experiments          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experiments \& Results}
+\begin{frame}{Experiments}
+    \begin{itemize}
+        \item Semantic3D (ID) vs S3DIS (OOD)
+        \begin{itemize}
+            \item Deep Ensembles
+            \item Flipout
+            \item Area Under Receiver Operating Characteristic (AUROC) score comparison
+        \end{itemize}
+        \item \textcolor{gray}{Semantic3D vs Semantic3D w/o colour}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Semantic3D vs S3DIS - Deep Ensembles}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{images/sem3d/Sem3d_DE_output.jpg}
+        \includegraphics[scale=0.25]{images/legend.jpg}
+        \caption{caption}
+        \label{fig:sem3d_de_op}
+    \end{figure}
+\end{frame}
+\begin{frame}{Semantic3D vs S3DIS - Deep Ensembles}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{images/s3dis/top_legend_s3dis_DE.jpg}
+        \includegraphics[scale=0.5]{images/s3dis/S3DIS_DE_output.jpg}
+        \includegraphics[scale=0.25]{images/legend.jpg}
+        \caption{caption}
+        \label{fig:s3dis_de_op}
+    \end{figure}
+\end{frame}
+\begin{frame}{Semantic3D vs S3DIS - Deep Ensembles}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.28]{images/ood1/MSP_Mean_OOD1_DE.jpg}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.28]{images/ood1/Ent_Mean_OOD1_DE.jpg}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Semantic3D vs S3DIS - Flipout}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{images/sem3d/Sem3d_Fout_op.jpg}
+        \includegraphics[scale=0.25]{images/legend.jpg}
+        \caption{caption}
+        \label{fig:sem3d_fout_op}
+    \end{figure}
+\end{frame}
+\begin{frame}{Semantic3D vs S3DIS - Flipout}
+    change this image here later dont forget
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{images/s3dis/top_legend_s3dis_DE.jpg}
+        \includegraphics[scale=0.5]{images/s3dis/S3DIS_DE_output.jpg}
+        \includegraphics[scale=0.25]{images/legend.jpg}
+        \caption{caption}
+        \label{fig:s3dis_fout_op}
+    \end{figure}
+\end{frame}
+\begin{frame}{Semantic3D vs S3DIS - Flipout}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.28]{images/ood1/MSP_Mean_OOD1_Fout.jpg}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.28]{images/ood1/Ent_Mean_OOD1_Fout.jpg}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Semantic3D vs S3DIS - AUROC Scores}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=.35]{images/ood1/AUROC_OOD1_Scores.jpg}
+        \caption{caption}
+        \label{fig:ood1_AUROC}
+    \end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%        Experiment2           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Experiments}
+    \begin{itemize}
+        \item \textcolor{gray}{Semantic3D (ID) vs S3DIS (OOD)}
+        
+        \item Semantic3D vs Semantic3D w/o colour
+        \begin{itemize}
+            \item Deep Ensembles
+            \item Flipout
+            \item Area Under Receiver Operating Characteristic (AUROC) score comparison
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Semantic3D colour vs w/o colour - Deep Ensembles}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{images/ood2/top_legend_ood2.jpg}
+        \includegraphics[scale=0.5]{images/ood2/Sem3d_OOD2_DE.jpg}
+        \caption{caption}
+        \label{fig:DE_ood2_op}
+    \end{figure}
+\end{frame}
+\begin{frame}{Semantic3D colour vs w/o colour - Deep Ensembles}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.28]{images/ood2/DE_MSP_OOD2.jpg}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.38]{images/ood2/DE_Ent_OOD2.jpg}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%\begin{frame}{Semantic3D colour vs w/o colour - Flipout}
+%    \begin{figure}
+%        \centering
+%        \includegraphics[scale=0.5]{images/ood2/top_legend_ood2.jpg}
+%        \includegraphics[scale=0.5]{images/ood2/Sem3d_OOD2_Fout.jpg}
+%        \caption{caption}
+%        \label{fig:Fout_ood2_op}
+%    \end{figure}
+%\end{frame}
+\begin{frame}{Semantic3D colour vs w/o colour - Flipout}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.28]{images/ood2/Fout_MSP_OOD2.jpg}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.38]{images/ood2/Fout_Ent_OOD2.jpg}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Semantic3D colour vs w/o colour - AUROC Scores}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.35]{images/ood2/AUROC_OOD2.jpg}
+        \caption{caption}
+         \label{fig:auroc_scores_ood2}
+    \end{figure}
+\end{frame}
+
 % Arrange the experiments and explain the results here
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%        Conclusion         %%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -395,7 +568,7 @@
     \begin{enumerate}
         \item Training and evaluation of 3D DNNs are time consuming and resource intensive.
         \item Finding the proper prior for Flipout layers is hard and currently we use brute force to find the best fitting prior.
-        \item OOD benchmarking require in depth analysis of datasets like studying the structural similarties in the datasets and also color spectrum.
+        \item OOD benchmarking require in depth analysis of datasets like studying the structural similarties in the datasets and also colour spectrum.
         \item LiDAR datasets have large memory requirements especially for the preprocessing and metric computation.
         \item Getting 100\% OOD detection performance is not possible with the post-hoc methods used as some points in the ID dataset also have low probability scores.
     \end{enumerate}
