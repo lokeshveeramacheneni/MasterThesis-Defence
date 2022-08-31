@@ -29,7 +29,7 @@
 
 % leave the value of this argument empty if the advisors
 % should not be included on the title slide
-\def\advisors{}
+\def\advisors{Prof. Dr Paul G Ploeger, Prof. Dr Matias Valdenegro Toro, Prof. Dr Sebastian Houben}
 
 \thirdpartylogo{images/DFKI.png}
 
@@ -66,7 +66,7 @@
         \begin{figure}
             \centering
             \includegraphics[scale=0.25]{images/Tesla_ex_moon.jpg}
-            \caption{Caption}
+            \caption{Misdetection of Moon as yellow signal light in Tesla driving platform. Image taken from \cite{tesla_fails}.}
             \label{fig:eg_tesla_moon}
         \end{figure}
         \end{column}
@@ -98,7 +98,7 @@
             \begin{figure}
                 \centering
                 \includegraphics[scale=0.35]{images/apollo_pipeline.jpg}
-                \caption{Caption}
+                \caption{Module pipeline for Apollo autonomous driving platform. Image taken from \cite{baiduapollo}.}
                 \label{fig:eg_apollo_pipeline}
             \end{figure}
        \end{column}
@@ -123,7 +123,7 @@
             \begin{figure}
                 \centering
                 \includegraphics[scale=0.25]{images/sample_LiDAR_PC.jpg}
-                \caption{Caption}
+                \caption{Sample LiDAR point cloud collected in a outdoor scene. Image taken from \cite{hackel2017semantic3d}.}
                 \label{fig:sample_lidar_pc}
             \end{figure}
        \end{column}
@@ -144,7 +144,7 @@
                 %\includegraphics[scale=0.15]{images/sample_LiDAR_PC.jpg}
                 %\includegraphics[scale=0.15]{images/sample_LiDAR_PC_segmented.jpg}
                 \includegraphics[scale=0.3]{images/sample_LiDAR_PC_segmented.jpg}
-                \caption{Caption}
+                \caption{Segmented output of sample point cloud. Image taken from \cite{hackel2017semantic3d}.}
                 \label{fig:sample_lidar_pc_segmented}
             \end{figure}
        \end{column}
@@ -193,7 +193,9 @@
             \begin{figure}
                 \centering
                 \includegraphics[scale=0.35]{images/randlanet_dires_effect.jpg}
-                \caption{caption}
+                \caption{Image depicting the working of Dilated residual block with each circle representing the receptive
+                field of the block for feature extraction. LA represents the combination of Local Spatial Encoding and
+                Attentive Pooling modules combined. Image taken from \cite{Hu_2020_CVPR_Randla}.}
                 \label{fig:dires_effect}
             \end{figure}
         \end{column}
@@ -205,7 +207,8 @@
         \centering
         \includegraphics[width = 0.9\textwidth, height=0.37\textheight]{images/randlanet_dires_block.jpg}
         \includegraphics[width = 0.9\textwidth, height=0.37\textheight]{images/randlanet_model.jpg}
-        \caption{caption}
+        \caption{Illustration of (a) local feature aggregation module in RandLa-Net and (b) architecture of
+        RandLA-Net. Both the images are taken from \cite{Hu_2020_CVPR_Randla}.}
         \label{fig:randla_model}
     \end{figure}
 \end{frame}
@@ -232,7 +235,8 @@
             \begin{figure}
                 \centering
                 \includegraphics[scale=0.5]{images/deep_ensembles.jpg}
-                \caption{caption}
+                \caption{Illustration of test dataflow in Deep Ensembles, where input point cloud is fed into multiple
+                randomly initialized models.}
                 \label{fig:deep_ensembles_work}    
             \end{figure}
         \end{column}
@@ -252,8 +256,9 @@
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.5]{images/flipout.jpg}
-                \caption{caption}
+                \includegraphics[scale=0.45]{images/flipout.jpg}
+                \caption{Illustration of test dataflow in Flipout. Here F1 represents the Flipout trained model and we
+                compute n forward passes of the same point cloud on F1 .}
                 \label{fig:flipout_work}
             \end{figure}
         \end{column}
@@ -296,7 +301,7 @@
         \includegraphics[scale=0.25]{images/3d_datasets.jpg}
     \end{figure}
     \begin{table}
-        \caption{caption}
+        \caption{3D LiDAR datasets classified based on the acquisition type. Table updated from \cite{survey3d}.}
     \end{table}
 \end{frame}
 \begin{frame}{Semantic3D}
@@ -313,8 +318,8 @@
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.25]{images/sem3d/sem3d_stats.jpg}
-                \caption{caption}
+                \includegraphics[scale=0.22]{images/sem3d/sem3d_stats.jpg}
+                \caption{Graph depicting the number of points per class (in millions) in the Semantic3D dataset.}
                 \label{fig:sem3d_stats}
             \end{figure}
         \end{column}
@@ -333,9 +338,7 @@
         \begin{column}{0.33\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.33]{images/sem3d/sem3d_sample_2.jpg}
-                \caption{caption}
-                \label{fig:sem3d_sample_2}    
+                \includegraphics[scale=0.33]{images/sem3d/sem3d_sample_2.jpg}   
             \end{figure}
         \end{column}
         \begin{column}{0.33\textwidth}
@@ -347,6 +350,10 @@
             \end{figure}
         \end{column}
     \end{columns}
+    \begin{figure}
+        \centering
+        \caption{Illustration of the Semantic3D point clouds of various outdoor scenes.}
+    \end{figure}
 \end{frame}
 \begin{frame}{S3DIS}
     \begin{columns}
@@ -367,7 +374,7 @@
                 \centering
                 \includegraphics[scale=0.35]{images/s3dis/s3dis_sample_1.jpg}
                 \includegraphics[scale=0.35]{images/s3dis/s3dis_sample_2.jpg}
-                \caption{caption}
+                \caption{Illustration of the S3DIS point clouds of various indoor scenes.}
                 \label{fig:s3dis_sample_images}
             \end{figure}
         \end{column}
@@ -379,7 +386,8 @@
         \includegraphics[scale=0.33]{images/benchmark_table.jpg}
     \end{figure}
     \begin{table}
-        \caption{caption}
+        \caption{Table representing the ID dataset and corresponding OOD datasets, difficulty in OOD detection
+        and the summary of reasons to chose this OOD dataset.}
     \end{table}
 \end{frame}
 \begin{frame}[noframenumbering]{Setup}
@@ -410,7 +418,8 @@
         \centering
         \includegraphics[scale=0.5]{images/sem3d/Sem3d_DE_output.jpg}
         \includegraphics[scale=0.25]{images/legend.jpg}
-        \caption{caption}
+        \caption{Image representing the predictions (last column) from Deep Ensemble with an ensemble size
+        of 15 on Semantic3D dataset. The first column depict the ground truth.}
         \label{fig:sem3d_de_op}
     \end{figure}
 \end{frame}
@@ -420,7 +429,8 @@
         \includegraphics[scale=0.5]{images/s3dis/top_legend_s3dis_DE.jpg}
         \includegraphics[scale=0.5]{images/s3dis/S3DIS_DE_output.jpg}
         \includegraphics[scale=0.25]{images/legend.jpg}
-        \caption{caption}
+        \caption{Predictions of RandLA-Net on S3DIS (OOD) dataset. First column representing the point
+        cloud, second column presenting the predictions of Deep Ensembles (15 Ensemble size)}
         \label{fig:s3dis_de_op}
     \end{figure}
 \end{frame}
@@ -439,6 +449,10 @@
             \end{figure}
         \end{column}
     \end{columns}
+    \begin{figure}
+        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
+        S3DIS (OOD) in red when using Deep Ensembles. The variance is represented via the error bars.}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Semantic3D vs S3DIS - Flipout}
@@ -446,7 +460,7 @@
         \centering
         \includegraphics[scale=0.5]{images/sem3d/Sem3d_Fout_op.jpg}
         \includegraphics[scale=0.25]{images/legend.jpg}
-        \caption{caption}
+        \caption{Image representing the predictions (last column) from Flipout with 15 number of passes on Semantic3D dataset. The first column depict the ground truth.}
         \label{fig:sem3d_fout_op}
     \end{figure}
 \end{frame}
@@ -470,7 +484,8 @@
     \begin{figure}
         \centering
         \includegraphics[scale=0.25]{images/legend.jpg}
-        \caption{caption}
+        \caption{Predictions of RandLA-Net on S3DIS (OOD) dataset. First column representing the point
+        cloud, second column presenting the predictions from Flipout (15 number of passes)}
     \end{figure}
 \end{frame}
 \begin{frame}{Semantic3D vs S3DIS - Flipout}
@@ -488,21 +503,29 @@
             \end{figure}
         \end{column}
     \end{columns}
+    \begin{figure}
+        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
+        S3DIS (OOD) in red when using Flipout. The variance is represented via the error bars.}
+    \end{figure}
 \end{frame}
 \begin{frame}{Semantic3D vs S3DIS - AUROC Scores}
             \begin{figure}
                 \centering
-                \includegraphics[scale=.35]{images/ood1/AUROC_OOD1_Scores.jpg}
+                \includegraphics[scale=.33]{images/ood1/AUROC_OOD1_Scores.jpg}
             \end{figure}   
             \begin{table}
-                \caption{caption}
+                \caption{AUROC scores calculated for all the points in the test sets of Semantic3D and S3DIS for
+                Dropout, Flipout, and Deep Ensembles generated using MSP and entropy values for various ensemble
+                sizes and forward passes.}
             \end{table}
 \end{frame}
 \begin{frame}{Semantic3D vs S3DIS - AUROC Scores}
     \begin{figure}
         \includegraphics[scale = 0.35]{images/ood1_msp_roc.jpg}
         \includegraphics[scale=0.35]{images/ood1_ent_roc.jpg}
-        \caption{caption}
+        \caption{ROC curves of Semantic3D-vs-S3DIS for 10 Ensembles, 10 forward passes for Flipout and
+        Dropout. (a) representing the ROC curve from MSP and (b) representing the ROC curve from the entropy
+        score.}
     \end{figure}
 \end{frame}
 
@@ -528,7 +551,8 @@
         \centering
         \includegraphics[scale=0.5]{images/ood2/top_legend_ood2.jpg}
         \includegraphics[scale=0.5]{images/ood2/Sem3d_OOD2_DE.jpg}
-        \caption{caption}
+        \caption{Output predictions of the RandLA-Net over the Semantic3D dataset and Semantic3D without
+        colour dataset using Deep Ensembles (Ensemble size of 10)}
         \label{fig:DE_ood2_op}
     \end{figure}
 \end{frame}
@@ -537,16 +561,20 @@
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.28]{images/ood2/DE_MSP_OOD2.jpg}
+                \includegraphics[scale=0.25]{images/ood2/DE_MSP_OOD2.jpg}
             \end{figure}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.38]{images/ood2/DE_Ent_OOD2.jpg}
+                \includegraphics[scale=0.32]{images/ood2/DE_Ent_OOD2.jpg}
             \end{figure}
         \end{column}
     \end{columns}
+    \begin{figure}
+        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
+        Semantic3D w/o colour (OOD) in red when using Deep Ensembles. The variance is represented via the error bars.}
+    \end{figure}
 \end{frame}
 
 %\begin{frame}{Semantic3D colour vs w/o colour - Flipout}
@@ -563,32 +591,39 @@
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.28]{images/ood2/Fout_MSP_OOD2.jpg}
+                \includegraphics[scale=0.25]{images/ood2/Fout_MSP_OOD2.jpg}
             \end{figure}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[scale=0.38]{images/ood2/Fout_Ent_OOD2.jpg}
+                \includegraphics[scale=0.32]{images/ood2/Fout_Ent_OOD2.jpg}
             \end{figure}
         \end{column}
     \end{columns}
+    \begin{figure}
+        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
+        Semantic3D w/o colour (OOD) in red when using Flipout. The variance is represented via the error bars.}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Semantic3D colour vs w/o colour - AUROC Scores}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.35]{images/ood2/AUROC_OOD2.jpg}
+        \includegraphics[scale=0.33]{images/ood2/AUROC_OOD2.jpg}
     \end{figure}
     \begin{table}
-        \caption{caption}
+        \caption{AUROC scores in case of Semantic3D-vs-Semantic3D without colour for Dropout, Flipout, and
+        Deep Ensembles generated using MSP and entropy values for various ensemble sizes and forward passes.}
     \end{table}
 \end{frame}
 \begin{frame}{Semantic3D colour vs w/o colour - AUROC Scores}
     \begin{figure}
         \centering
         \includegraphics[scale=0.35]{images/ood2_roc_curves.jpg}
-        \caption{caption}
+        \caption{ROC curves of Semantic3D-vs-Semantic3D without colour for 10 ensembles, 10 forward
+        passes for Flipout and Dropout. (a) representing the ROC curve from MSP and (b) representing the ROC
+        curve from the entropy score.}
     \end{figure}
 \end{frame}
 
@@ -614,7 +649,7 @@
     \begin{enumerate}
         \item Training and evaluation of 3D DNNs are time consuming and resource intensive.
         \item Finding the proper prior for Flipout layers is hard and currently we use brute force to find the best fitting prior.
-        \item OOD benchmarking require in depth analysis of datasets like studying the structural similarties in the datasets and also colour spectrum.
+        %\item OOD benchmarking require in depth analysis of datasets like studying the structural similarties in the datasets and also colour spectrum.
         \item LiDAR datasets have large memory requirements especially for the preprocessing and metric computation.
         \item Getting 100\% OOD detection performance is not possible with the post-hoc methods used as some points in the ID dataset also have low probability scores.
     \end{enumerate}
@@ -631,7 +666,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%        References%%           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[noframenumbering]{References}
+\begin{frame}[noframenumbering, allowframebreaks]{References}
     \bibliographystyle{plain}
     \bibliography{bibliography.bib}
 
