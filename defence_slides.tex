@@ -53,12 +53,12 @@
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item Tesla autonomous driving system detects the moon as yellow traffic light
+                \item Tesla autonomous driving system detects the Moon as yellow traffic light
                 \item These faulty predictions might result in unpredictable behaviour
                 \item An ideal trustworthy visual recognition system
                 \begin{itemize}
-                    \item Produce accurate predictions on known examples
-                    \item Detect and reject unknown examples
+                    \item Produce accurate predictions on known samples
+                    \item Detect and reject unknown samples
                 \end{itemize}
             \end{itemize}
         \end{column}
@@ -77,8 +77,8 @@
 \begin{frame}{Out-of-Distribution detection}
     \begin{itemize}
         \item Deep Neural Networks (DNNs) are trained based on closed world assumption
-        \item Closed world assumption - test data is assumed to be drawn from same distribution as training data which is called In-Distribution (ID)
-        \item When deployed in real-world (open world scenario) the test samples can be Out-of-Distribution (OOD), the test samples can be
+        \item Closed world assumption - test data is assumed to be drawn from same distribution as \textbf{training data} which is called \textbf{In-Distribution (ID)}
+        \item When deployed in real-world (\textbf{open world scenario}) these OOD samples can be \textbf{Out-of-Distribution (OOD)}, the test samples can be
         \begin{itemize}
             \item from different class
             \item from different domain 
@@ -90,9 +90,10 @@
     \begin{columns}
        \begin{column}{0.5\textwidth}
         \begin{itemize}
-            \item Figure~\ref{fig:eg_apollo_pipeline} depicts the pipeline of modules in Apollo driving platform.
-            \item Prediction and motion planning module are dependent on perception module.
-            \item A misdetection of an OOD sample will propagate the error to motion planning and affects the total vehicle control and this might lead to unfortunate consequence
+            \item Figure~\ref{fig:eg_apollo_pipeline} depicts the pipeline of modules in Apollo driving platform
+            \item Prediction and motion planning module are dependent on perception module
+            \item A misdetection of an OOD sample will propagate the error to motion planning
+            \item This error affects the total vehicle control and might lead to unfortunate consequences
         \end{itemize}
        \end{column}
        \begin{column}{0.5\textwidth}
@@ -109,9 +110,9 @@
     \begin{columns}
        \begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item Uses pulsed lasers to find the range to the objects
+                \item Uses \textbf{pulsed lasers} to find the  \textbf{range} to the objects
                 \item Unlike images, LiDAR is insusceptible to illumination and provide rich 3D information.
-                \item Figure~\ref{fig:sample_lidar_pc} depicts the sample point cloud with LiDAR is placed in round white circle found at the centre of point cloud
+                %\item Figure~\ref{fig:sample_lidar_pc} depicts the sample point cloud with LiDAR is placed in round white circle found at the centre of point cloud
                 \item Typically, features of each point in point cloud includes 
                 \begin{itemize}
                     \item Spatial features (XYZ)
@@ -136,7 +137,7 @@
             \begin{itemize}
                 \item An important task in computer vision because of its use in scene understanding
                 \item Further helps in navigation and planning of robots
-                \item Objective - Assign each point in the point cloud a specific class
+                \item Objective - Assign \textbf{each point} in the point cloud a \textbf{specific class}
             \end{itemize}       
        \end{column}
        \begin{column}{0.6\textwidth}
@@ -156,12 +157,12 @@
 
 \begin{itemize}
     \item OOD detection in the 3D semantic segmentation setting
-    \item Create benchmark datasets for OOD detection among existing 3D LiDAR datasets. We define OOD data based on two categories
+    \item Create \textbf{benchmark datasets} for OOD detection among existing 3D LiDAR datasets. We define OOD data based on two categories
     \begin{itemize}
         \item if the point is from different class than training data
         \item if the point has inferior quality
     \end{itemize}
-    \item We also study whether uncertainty estimation is a practical approach for OOD detection in 3D domain
+    \item We also study whether \textbf{uncertainty estimation} is a practical approach for OOD detection in 3D domain
 \end{itemize}
     
 \end{frame}
@@ -185,9 +186,9 @@
         \begin{column}{0.6\textwidth}
             \begin{itemize}
                 \item Lightweight, efficient computation, memory usage and inputs 3D point cloud directly
-                \item Random point sampling and local feature aggregation module are most important modules
+                \item \textbf{Random point sampling} and \textbf{local feature aggregation module} are most important modules
                 \item Local feature aggregation module is subdivided into local spatial encoding, attentive pooling and dilated residual block
-                \item Encoder-Decoder style architecture as depicted in Figure~\ref{fig:randla_model}
+                \item \textbf{Encoder-Decoder style} architecture as depicted in Figure~\ref{fig:randla_model}
             \end{itemize}
         \end{column}
         \begin{column}{0.4\textwidth}
@@ -208,8 +209,8 @@
         \centering
         \includegraphics[width = 0.9\textwidth, height=0.37\textheight]{images/randlanet_dires_block.jpg}
         \includegraphics[width = 0.9\textwidth, height=0.37\textheight]{images/randlanet_model.jpg}
-        \caption{Illustration of (a) local feature aggregation module in RandLa-Net and (b) architecture of
-        RandLA-Net. Both the images are taken from \cite{Hu_2020_CVPR_Randla}.}
+        \caption{Illustration of local feature aggregation module in RandLa-Net in top image and architecture of
+        RandLA-Net in bottom image. Both the images are taken from \cite{Hu_2020_CVPR_Randla}.}
         \label{fig:randla_model}
     \end{figure}
 \end{frame}
@@ -228,8 +229,8 @@
             \begin{itemize}
                 \item Ensemble learning technique - train N randomly initialized models with same data
                 \item Resulting N predictions are then averaged
-                \item Performance boosting along with uncertainty value for a prediction
-                \item Requires more computation power
+                \item \textbf{Performance boosting} along with uncertainty value for a prediction
+                \item Requires \textbf{more computation power}
             \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -237,7 +238,7 @@
                 \centering
                 \includegraphics[scale=0.5]{images/deep_ensembles.jpg}
                 \caption{Illustration of test dataflow in Deep Ensembles, where input point cloud is fed into multiple
-                randomly initialized models.}
+                randomly initialized models $M_1$ to $M_n$.}
                 \label{fig:deep_ensembles_work}    
             \end{figure}
         \end{column}
@@ -249,17 +250,15 @@
             \begin{itemize}
                 \item Introduced as a method to decorrelate gradients in a mini-batch of examples
                 \item Add independent weight perturbations sampled from a distribution
-                \item The output of Flipout versioned neuron is 
-                
-                \item Train single instance of Flipout versioned network and then perform multiple forward passes for same input
+                \item Train \textbf{single instance} of Flipout versioned network and then \textbf{perform multiple forward passes} for same input
             \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
                 \includegraphics[scale=0.45]{images/flipout.jpg}
-                \caption{Illustration of test dataflow in Flipout. Here F1 represents the Flipout trained model and we
-                compute n forward passes of the same point cloud on F1 .}
+                \caption{Illustration of test dataflow in Flipout. Here $F_1$ represents the Flipout trained model and we
+                compute n forward passes of the same point cloud on $F_1$.}
                 \label{fig:flipout_work}
             \end{figure}
         \end{column}
@@ -313,7 +312,7 @@
                 \item Scenes are taken in european streets around church, stations and fields
                 \item Point features include XYZ, RGB and Intensity values.
                 \item It has 8 classes with distribution of points represented in Figure~\ref{fig:sem3d_stats}
-                \item cite states that the scanning artefacts, hardscapes and cars are the most challenging classes
+                \item \cite{hackel2017semantic3d} states that the scanning artefacts, hardscapes and cars are the most challenging classes
             \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -353,7 +352,7 @@
     \end{columns}
     \begin{figure}
         \centering
-        \caption{Illustration of the Semantic3D point clouds of various outdoor scenes. Dataset from \cite[]{hackel2017semantic3d}.}
+        \caption{Illustration of the Semantic3D point clouds of various outdoor scenes. Dataset from \cite{hackel2017semantic3d}.}
     \end{figure}
 \end{frame}
 \begin{frame}{S3DIS}
@@ -375,7 +374,7 @@
                 \centering
                 \includegraphics[scale=0.35]{images/s3dis/s3dis_sample_1.jpg}
                 \includegraphics[scale=0.35]{images/s3dis/s3dis_sample_2.jpg}
-                \caption{Illustration of the S3DIS point clouds of various indoor scenes.}
+                \caption{Illustration of the S3DIS point clouds of various indoor scenes. Dataset from \cite{Armeni_2016_CVPR_S3DIS}.}
                 \label{fig:s3dis_sample_images}
             \end{figure}
         \end{column}
@@ -395,7 +394,7 @@
         \begin{tabular}{cccc}
         ID dataset                   & OOD dataset          &  OOD detection difficulty  & Summary                                                                                                                                                                             \\ \hline
         \multirow{2}{*}{Semantic 3D} & S3DIS                & Easy    & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}$\bullet$ No class overlap\\ $\bullet$ Less structural similarity\\ $\bullet$ Different domain(outdoor-vs-indoor)\end{tabular}} \\ \cline{2-4} 
-                                     & Semantic3D without color & Hard & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}$\bullet$ Same structural properties\\ $\bullet$ Difference in RGB values\\ $\bullet$ Same domain as ID dataset\\ $\bullet$ Same classes\end{tabular}}     \\ \hline
+                                     & Semantic3D without colour & Hard & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}$\bullet$ Same structural properties\\ $\bullet$ Difference in RGB values\\ $\bullet$ Same domain as ID dataset\\ $\bullet$ Same classes\end{tabular}}     \\ \hline
                                                                                                                                                                                        
         \end{tabular}
         }
@@ -408,7 +407,7 @@
         \item 3D Semantic Segmentation model - RandLA-Net
         \item Uncertainty methods - Deep Ensembles \& Flipout
         \item OOD score methods - Maximum Softmax Probability \& Entropy
-        \item Datasets - Semantic3D, S3DIS \& Semantic3D w/o colour
+        \item Datasets - Semantic3D-vs-S3DIS \& Semantic3D-vs-Semantic3D without colour
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -417,16 +416,16 @@
 \section{Experiments \& Results}
 \begin{frame}[noframenumbering]{Experiments}
     \begin{itemize}
-        \item Semantic3D (ID) vs S3DIS (OOD)
+        \item Semantic3D-vs-S3DIS
         \begin{itemize}
             \item Deep Ensembles
             \item Flipout
             \item Area Under Receiver Operating Characteristic (AUROC) score comparison
         \end{itemize}
-        \item Semantic3D vs Semantic3D w/o colour
+        \item Semantic3D-vs-Semantic3D without colour
     \end{itemize}
 \end{frame}
-\begin{frame}{Semantic3D vs S3DIS - Deep Ensembles}
+\begin{frame}{Semantic3D-vs-S3DIS - Deep Ensembles}
     \begin{figure}
         \centering
         \includegraphics[scale=0.5]{images/sem3d/Sem3d_DE_output.jpg}
@@ -436,18 +435,18 @@
         \label{fig:sem3d_de_op}
     \end{figure}
 \end{frame}
-\begin{frame}{Semantic3D vs S3DIS - Deep Ensembles}
+\begin{frame}{Semantic3D-vs-S3DIS - Deep Ensembles}
     \begin{figure}
         \centering
         \includegraphics[scale=0.5]{images/s3dis/top_legend_s3dis_DE.jpg}
         \includegraphics[scale=0.5]{images/s3dis/S3DIS_DE_output.jpg}
         \includegraphics[scale=0.25]{images/legend.jpg}
         \caption{Predictions of RandLA-Net on S3DIS (OOD) dataset. First column representing the point
-        cloud, second column presenting the predictions of Deep Ensembles (15 Ensemble size)}
+        cloud, second column presenting the predictions of Deep Ensembles (15 Ensemble size).}
         \label{fig:s3dis_de_op}
     \end{figure}
 \end{frame}
-\begin{frame}{Semantic3D vs S3DIS - Deep Ensembles}
+\begin{frame}{Semantic3D-vs-S3DIS - Deep Ensembles}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -463,12 +462,12 @@
         \end{column}
     \end{columns}
     \begin{figure}
-        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
+        \caption{Graphs representing the mean probability value and mean entropy as a dot for Semantic3D (ID) in green and
         S3DIS (OOD) in red when using Deep Ensembles. The variance is represented via the error bars.}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Semantic3D vs S3DIS - Flipout}
+\begin{frame}{Semantic3D-vs-S3DIS - Flipout}
     \begin{figure}
         \centering
         \includegraphics[scale=0.5]{images/sem3d/Sem3d_Fout_op.jpg}
@@ -477,7 +476,7 @@
         \label{fig:sem3d_fout_op}
     \end{figure}
 \end{frame}
-\begin{frame}{Semantic3D vs S3DIS - Flipout}
+\begin{frame}{Semantic3D-vs-S3DIS - Flipout}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -498,10 +497,10 @@
         \centering
         \includegraphics[scale=0.25]{images/legend.jpg}
         \caption{Predictions of RandLA-Net on S3DIS (OOD) dataset. First column representing the point
-        cloud, second column presenting the predictions from Flipout (15 number of passes)}
+        cloud, second column presenting the predictions from Flipout (15 number of passes).}
     \end{figure}
 \end{frame}
-\begin{frame}{Semantic3D vs S3DIS - Flipout}
+\begin{frame}{Semantic3D-vs-S3DIS - Flipout}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -517,11 +516,11 @@
         \end{column}
     \end{columns}
     \begin{figure}
-        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
+        \caption{Graphs representing the mean probability value and mean entropy as a dot for Semantic3D (ID) in green and
         S3DIS (OOD) in red when using Flipout. The variance is represented via the error bars.}
     \end{figure}
 \end{frame}
-\begin{frame}{Semantic3D vs S3DIS - AUROC Scores}
+\begin{frame}{Semantic3D-vs-S3DIS - AUROC Scores}
             %\begin{figure}
             %    \centering
             %    \includegraphics[scale=.33]{images/ood1/AUROC_OOD1_Scores.jpg}
@@ -559,13 +558,12 @@
                 \label{tab:sem3dvs3dis_auroc}
             \end{table}
 \end{frame}
-\begin{frame}{Semantic3D vs S3DIS - AUROC Scores}
+\begin{frame}{Semantic3D-vs-S3DIS - AUROC Scores}
     \begin{figure}
         \includegraphics[scale = 0.35]{images/ood1_msp_roc.jpg}
         \includegraphics[scale=0.35]{images/ood1_ent_roc.jpg}
         \caption{ROC curves of Semantic3D-vs-S3DIS for 10 Ensembles, 10 forward passes for Flipout and
-        Dropout. (a) representing the ROC curve from MSP and (b) representing the ROC curve from the entropy
-        score.}
+        Dropout using Maximum Softmax Probability and Entropy respectively.}
     \end{figure}
 \end{frame}
 
@@ -576,9 +574,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[noframenumbering]{Experiments}
     \begin{itemize}
-        \item \textcolor{gray}{Semantic3D (ID) vs S3DIS (OOD)}
+        \item \textcolor{gray}{Semantic3D-vs-S3DIS}
         
-        \item Semantic3D vs Semantic3D w/o colour
+        \item Semantic3D-vs-Semantic3D without colour
         \begin{itemize}
             \item Deep Ensembles
             \item Flipout
@@ -586,17 +584,18 @@
         \end{itemize}
     \end{itemize}
 \end{frame}
-\begin{frame}{Semantic3D colour vs w/o colour - Deep Ensembles}
+\begin{frame}{Semantic3D colour-vs-without colour - Deep Ensembles}
     \begin{figure}
         \centering
         \includegraphics[scale=0.5]{images/ood2/top_legend_ood2.jpg}
         \includegraphics[scale=0.5]{images/ood2/Sem3d_OOD2_DE.jpg}
+        \includegraphics[scale=0.25]{images/legend.jpg}
         \caption{Output predictions of the RandLA-Net over the Semantic3D dataset and Semantic3D without
-        colour dataset using Deep Ensembles (Ensemble size of 10)}
+        colour dataset using Deep Ensembles (Ensemble size of 10).}
         \label{fig:DE_ood2_op}
     \end{figure}
 \end{frame}
-\begin{frame}{Semantic3D colour vs w/o colour - Deep Ensembles}
+\begin{frame}{Semantic3D colour-vs-without colour - Deep Ensembles}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -612,12 +611,12 @@
         \end{column}
     \end{columns}
     \begin{figure}
-        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
-        Semantic3D w/o colour (OOD) in red when using Deep Ensembles. The variance is represented via the error bars.}
+        \caption{Graphs representing the mean probability value and mean entropy as a dot for Semantic3D (ID) in green and
+        Semantic3D without colour (OOD) in red when using Deep Ensembles. The variance is represented via the error bars.}
     \end{figure}
 \end{frame}
 
-%\begin{frame}{Semantic3D colour vs w/o colour - Flipout}
+%\begin{frame}{Semantic3D colour-vs-without colour - Flipout}
 %    \begin{figure}
 %        \centering
 %        \includegraphics[scale=0.5]{images/ood2/top_legend_ood2.jpg}
@@ -626,7 +625,7 @@
 %        \label{fig:Fout_ood2_op}
 %    \end{figure}
 %\end{frame}
-\begin{frame}{Semantic3D colour vs w/o colour - Flipout}
+\begin{frame}{Semantic3D colour-vs-without colour - Flipout}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -642,12 +641,12 @@
         \end{column}
     \end{columns}
     \begin{figure}
-        \caption{Graphs representing the mean probability value and entropy as a dot for Semantic3D (ID) in green and
-        Semantic3D w/o colour (OOD) in red when using Flipout. The variance is represented via the error bars.}
+        \caption{Graphs representing the mean probability value and mean entropy as a dot for Semantic3D (ID) in green and
+        Semantic3D without colour (OOD) in red when using Flipout. The variance is represented via the error bars.}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Semantic3D colour vs w/o colour - AUROC Scores}
+\begin{frame}{Semantic3D colour-vs-without colour - AUROC Scores}
     %\begin{figure}
     %    \centering
     %    \includegraphics[scale=0.33]{images/ood2/AUROC_OOD2.jpg}
@@ -657,7 +656,7 @@
     %    Deep Ensembles generated using MSP and entropy values for various ensemble sizes and forward passes.}
     %\end{table}
     \begin{table}[h!]
-        \resizebox{\textheight}{!}{%
+        \resizebox{0.8\textheight}{!}{%
         \centering
         \begin{tabular}{cccc}
         \hline
@@ -684,13 +683,12 @@
         \label{tab:auroc_ood_2}
     \end{table}
 \end{frame}
-\begin{frame}{Semantic3D colour vs w/o colour - AUROC Scores}
+\begin{frame}{Semantic3D colour-vs-without colour - AUROC Scores}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.35]{images/ood2_roc_curves.jpg}
+        \includegraphics[scale=0.3]{images/ood2_roc_curves.jpg}
         \caption{ROC curves of Semantic3D-vs-Semantic3D without colour for 10 ensembles, 10 forward
-        passes for Flipout and Dropout. (a) representing the ROC curve from MSP and (b) representing the ROC
-        curve from the entropy score.}
+        passes for Flipout and Dropout using Maximum Softmax Probability and Entropy scores respectively.}
     \end{figure}
 \end{frame}
 
