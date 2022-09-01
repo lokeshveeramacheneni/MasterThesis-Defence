@@ -18,6 +18,7 @@
 \usepackage{url, soul}       % `\url
 \usepackage{listings}  % Code listings
 \usepackage[T1]{fontenc}
+\usepackage{multirow}
 \usepackage{theme/beamerthemehbrs}
 
 \author[Veeramacheneni]{Lokesh Veeramacheneni}
@@ -298,7 +299,7 @@
 \begin{frame}{3D LiDAR datasets}
     \begin{figure}
         \centering
-        \includegraphics[scale=0.25]{images/3d_datasets.jpg}
+        \includegraphics[scale=0.23]{images/sota_datasets.png}
     \end{figure}
     \begin{table}
         \caption{3D LiDAR datasets classified based on the acquisition type. Table updated from \cite{survey3d}.}
@@ -352,7 +353,7 @@
     \end{columns}
     \begin{figure}
         \centering
-        \caption{Illustration of the Semantic3D point clouds of various outdoor scenes.}
+        \caption{Illustration of the Semantic3D point clouds of various outdoor scenes. Dataset from \cite[]{hackel2017semantic3d}.}
     \end{figure}
 \end{frame}
 \begin{frame}{S3DIS}
@@ -381,14 +382,26 @@
     \end{columns}
 \end{frame}
 \begin{frame}{OOD Benchmark datasets}
-    \begin{figure}
-        \centering
-        \includegraphics[scale=0.33]{images/benchmark_table.jpg}
-    \end{figure}
-    \begin{table}
-        \caption{Table representing the ID dataset and corresponding OOD datasets, difficulty in OOD detection
-        and the summary of reasons to chose this OOD dataset.}
-    \end{table}
+    %\begin{figure}
+    %    \centering
+    %    \includegraphics[scale=0.33]{images/benchmark_table.jpg}
+    %\end{figure}
+    %\begin{table}
+    %    \caption{Table representing the ID dataset and corresponding OOD datasets, difficulty in OOD detection
+    %    and the summary of reasons to chose this OOD dataset.}
+    %\end{table}
+    \begin{table}[h!]
+        \resizebox{\textwidth}{!}{%
+        \begin{tabular}{cccc}
+        ID dataset                   & OOD dataset          &  OOD detection difficulty  & Summary                                                                                                                                                                             \\ \hline
+        \multirow{2}{*}{Semantic 3D} & S3DIS                & Easy    & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}$\bullet$ No class overlap\\ $\bullet$ Less structural similarity\\ $\bullet$ Different domain(outdoor-vs-indoor)\end{tabular}} \\ \cline{2-4} 
+                                     & Semantic3D without color & Hard & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}$\bullet$ Same structural properties\\ $\bullet$ Difference in RGB values\\ $\bullet$ Same domain as ID dataset\\ $\bullet$ Same classes\end{tabular}}     \\ \hline
+                                                                                                                                                                                       
+        \end{tabular}
+        }
+        \caption{Table representing the ID dataset and corresponding OOD datasets, difficulty in OOD detection and the summary of reasons to chose this OOD dataset.}
+        \label{tab:OOD_reasons}
+        \end{table}
 \end{frame}
 \begin{frame}[noframenumbering]{Setup}
     \begin{itemize}
@@ -509,14 +522,41 @@
     \end{figure}
 \end{frame}
 \begin{frame}{Semantic3D vs S3DIS - AUROC Scores}
-            \begin{figure}
+            %\begin{figure}
+            %    \centering
+            %    \includegraphics[scale=.33]{images/ood1/AUROC_OOD1_Scores.jpg}
+            %\end{figure}   
+            %\begin{table}
+            %    \caption{AUROC scores calculated for all the points in the test sets of Semantic3D and S3DIS for
+            %    Dropout, Flipout, and Deep Ensembles generated using MSP and entropy values for various ensemble
+            %    sizes and forward passes.}
+            %\end{table}
+            \begin{table}[h!]
+                \resizebox{\textheight}{!}{%
                 \centering
-                \includegraphics[scale=.33]{images/ood1/AUROC_OOD1_Scores.jpg}
-            \end{figure}   
-            \begin{table}
-                \caption{AUROC scores calculated for all the points in the test sets of Semantic3D and S3DIS for
-                Dropout, Flipout, and Deep Ensembles generated using MSP and entropy values for various ensemble
-                sizes and forward passes.}
+                \begin{tabular}{cccc}
+                \hline
+                Ensemble size/ \#passes & Method               &  \multicolumn{2}{c}{AUROC}          \\ \hline
+                                        &                      &  MSP              & Entropy         \\ \hline
+                \multirow{3}{*}{1}      & Dropout              & 0.53311          & 0.53041          \\
+                                        & Flipout              & \textbf{0.69988} & \textbf{0.69368} \\
+                                        & Deep Ensembles       & 0.62020          & 0.62529          \\ \hline
+                \multirow{3}{*}{5}      & Dropout              & 0.58439          & 0.57821          \\
+                                        & Flipout              & 0.77885          & 0.76934          \\
+                                        & Deep Ensembles       & \textbf{0.84013} & \textbf{0.83665} \\ \hline
+                \multirow{3}{*}{10}     & Dropout              & 0.60168          & 0.59925          \\
+                                        & Flipout              & 0.78728          & 0.78327          \\
+                                        & Deep Ensembles       & \textbf{0.87929} & \textbf{0.87541} \\ \hline
+                \multirow{3}{*}{15}     & Dropout              & 0.59773          & 0.59557          \\
+                                        & Flipout              & 0.7667           & 0.76741          \\
+                                        & Deep Ensembles       & \textbf{0.88486} & \textbf{0.88246} \\ \hline
+                \multirow{3}{*}{20}     & Dropout              & 0.59766          & 0.59661          \\
+                                        & Flipout              & 0.77331          & 0.77237          \\
+                                        & Deep Ensembles       & \textbf{0.89338} & \textbf{0.89052} \\ \hline
+                \end{tabular}
+                }
+                \caption{AUROC scores calculated for all the points in the test sets of Semantic3D and S3DIS for Dropout, Flipout, and  Deep Ensembles generated using MSP and entropy values for various ensemble sizes and forward passes.}
+                \label{tab:sem3dvs3dis_auroc}
             \end{table}
 \end{frame}
 \begin{frame}{Semantic3D vs S3DIS - AUROC Scores}
@@ -608,13 +648,40 @@
 \end{frame}
 
 \begin{frame}{Semantic3D colour vs w/o colour - AUROC Scores}
-    \begin{figure}
+    %\begin{figure}
+    %    \centering
+    %    \includegraphics[scale=0.33]{images/ood2/AUROC_OOD2.jpg}
+    %\end{figure}
+    %\begin{table}
+    %    \caption{AUROC scores in case of Semantic3D-vs-Semantic3D without colour for Dropout, Flipout, and
+    %    Deep Ensembles generated using MSP and entropy values for various ensemble sizes and forward passes.}
+    %\end{table}
+    \begin{table}[h!]
+        \resizebox{\textheight}{!}{%
         \centering
-        \includegraphics[scale=0.33]{images/ood2/AUROC_OOD2.jpg}
-    \end{figure}
-    \begin{table}
-        \caption{AUROC scores in case of Semantic3D-vs-Semantic3D without colour for Dropout, Flipout, and
-        Deep Ensembles generated using MSP and entropy values for various ensemble sizes and forward passes.}
+        \begin{tabular}{cccc}
+        \hline
+        Ensemble size/ \#passes & Method               &  \multicolumn{2}{c}{AUROC}          \\ \hline
+                                &                      &  MSP             & Entropy          \\ \hline
+        \multirow{3}{*}{1}      & Dropout              & 0.66349          & 0.65908          \\
+                                & Flipout              & 0.64221          & 0.66157          \\
+                                & Deep Ensembles       & \textbf{0.67855} & \textbf{0.67866} \\ \hline
+        \multirow{3}{*}{5}      & Dropout              & 0.69448          & 0.68507          \\
+                                & Flipout              & 0.63743          & 0.66536          \\
+                                & Deep Ensembles       & \textbf{0.76769} & \textbf{0.77120} \\ \hline
+        \multirow{3}{*}{10}     & Dropout              & 0.68568          & 0.68004          \\
+                                & Flipout              & 0.63712          & 0.66535          \\
+                                & Deep Ensembles       & \textbf{0.77837} & \textbf{0.78142} \\ \hline
+        \multirow{3}{*}{15}     & Dropout              & 0.68975          & 0.68347          \\
+                                & Flipout              & 0.63022           & 0.65976          \\
+                                & Deep Ensembles       & \textbf{0.77302} & \textbf{0.77881} \\ \hline
+        \multirow{3}{*}{20}     & Dropout              & 0.68447          & 0.68199          \\
+                                & Flipout              & 0.63017          & 0.65934          \\
+                                & Deep Ensembles       & \textbf{0.77031} & \textbf{0.77584} \\ \hline
+        \end{tabular}
+        }
+        \caption{AUROC scores in case of Semantic3D-vs-Semantic3D without colour for Dropout, Flipout, and  Deep Ensembles generated using MSP and entropy values for various ensemble sizes and forward passes.}
+        \label{tab:auroc_ood_2}
     \end{table}
 \end{frame}
 \begin{frame}{Semantic3D colour vs w/o colour - AUROC Scores}
