@@ -54,7 +54,7 @@
         \begin{column}{0.5\textwidth}
             \begin{itemize}
                 \item Tesla autonomous driving system detects the Moon as yellow traffic light
-                \item These faulty predictions might result in unpredictable behaviour
+                \item These faulty predictions result in unpredictable behaviour
                 \item An ideal trustworthy visual recognition system
                 \begin{itemize}
                     \item Produce accurate predictions on known samples
@@ -77,12 +77,13 @@
 \begin{frame}{Out-of-Distribution detection}
     \begin{itemize}
         \item Deep Neural Networks (DNNs) are trained based on closed world assumption
-        \item Closed world assumption - test data is assumed to be drawn from same distribution as \textbf{training data} which is called \textbf{In-Distribution (ID)}
-        \item When deployed in real-world (\textbf{open world scenario}) these OOD samples can be \textbf{Out-of-Distribution (OOD)}, the test samples can be
+        \item Closed world assumption - test data is assumed to be from same distribution as \textbf{training data} which is called \textbf{In-Distribution (ID)} data
+        \item When deployed in real-world (\textbf{open world scenario}), the test samples can be
         \begin{itemize}
             \item from different class
             \item from different domain 
         \end{itemize}
+        \item These test samples are called \textbf{Out-of-Distribution} samples
         %\item Moon is classified as an OOD object in the above example
     \end{itemize}
 \end{frame}
@@ -90,10 +91,10 @@
     \begin{columns}
        \begin{column}{0.5\textwidth}
         \begin{itemize}
-            \item Figure~\ref{fig:eg_apollo_pipeline} depicts the pipeline of modules in Apollo driving platform
-            \item Prediction and motion planning module are dependent on perception module
-            \item A misdetection of an OOD sample will propagate the error to motion planning
-            \item This error affects the total vehicle control and might lead to unfortunate consequences
+            % \item Figure~\ref{fig:eg_apollo_pipeline} depicts the pipeline used in Apollo driving platform.
+            \item Prediction and motion planning modules depend on perception module
+            \item OOD sample misdetection propagates error to motion planning
+            \item This affects the total vehicle control and lead to catastrophic consequences
         \end{itemize}
        \end{column}
        \begin{column}{0.5\textwidth}
@@ -111,13 +112,15 @@
        \begin{column}{0.5\textwidth}
             \begin{itemize}
                 \item Uses \textbf{pulsed lasers} to find the  \textbf{range} to the objects
-                \item Unlike images, LiDAR is insusceptible to illumination and provide rich 3D information.
+                \item Unlike images, LiDAR is insusceptible to illumination 
+                \item It provide rich 3D information
                 %\item Figure~\ref{fig:sample_lidar_pc} depicts the sample point cloud with LiDAR is placed in round white circle found at the centre of point cloud
-                \item Typically, features of each point in point cloud includes 
+                \item Typically, features of each point includes
                 \begin{itemize}
                     \item Spatial features (XYZ)
                     \item Colour (RGB)
                     \item Intensity
+                    \item Surface normals
                 \end{itemize}
             \end{itemize}
        \end{column}
@@ -135,9 +138,9 @@
     \begin{columns}
        \begin{column}{0.4\textwidth}
             \begin{itemize}
-                \item An important task in computer vision because of its use in scene understanding
-                \item Further helps in navigation and planning of robots
-                \item Objective - Assign \textbf{each point} in the point cloud a \textbf{specific class}
+                \item An important task in computer vision because of scene understanding
+                \item Helps in navigation and planning of robots
+                \item Objective - Assign \textbf{each point} in the point cloud to a \textbf{specific class}
             \end{itemize}       
        \end{column}
        \begin{column}{0.6\textwidth}
@@ -156,13 +159,13 @@
 \begin{frame}{Thesis objective}
 
 \begin{itemize}
-    \item OOD detection in the 3D semantic segmentation setting
-    \item Create \textbf{benchmark datasets} for OOD detection among existing 3D LiDAR datasets. We define OOD data based on two categories
+    \item OOD detection in the 3D semantic segmentation.
+    \item Propose datasets for OOD detection benchmarking. We define OOD data based on two categories
     \begin{itemize}
-        \item if the point is from different class than training data
+        \item if the point is from different class to training data
         \item if the point has inferior quality
     \end{itemize}
-    \item We also study whether \textbf{uncertainty estimation} is a practical approach for OOD detection in 3D domain
+    \item Study whether uncertainty estimation a practical approach for OOD detection in 3D Semantic Segmentation.
 \end{itemize}
     
 \end{frame}
@@ -176,9 +179,9 @@
     \begin{itemize}
 
         \item 3D Semantic Segmentation model
-        \item Uncertainty methods
-        \item OOD score methods
-        \item Datasets
+        \item \textcolor{gray}{Uncertainty methods}
+        \item \textcolor{gray}{OOD score methods}
+        \item \textcolor{gray}{Datasets}
     \end{itemize}
 \end{frame}
 \begin{frame}{RandLA-Net}
@@ -188,7 +191,7 @@
                 \item Lightweight, efficient computation, memory usage and inputs 3D point cloud directly
                 \item \textbf{Random point sampling} and \textbf{local feature aggregation module} are most important modules
                 \item Local feature aggregation module is subdivided into local spatial encoding, attentive pooling and dilated residual block
-                \item \textbf{Encoder-Decoder style} architecture as depicted in Figure~\ref{fig:randla_model}
+                \item \textbf{Encoder-Decoder style} architecture
             \end{itemize}
         \end{column}
         \begin{column}{0.4\textwidth}
@@ -219,8 +222,8 @@
         
         \item \textcolor{gray}{3D Semantic Segmentation model - RandLA-Net}
         \item Uncertainty methods
-        \item OOD score methods
-        \item Datasets
+        \item \textcolor{gray}{OOD score methods}
+        \item \textcolor{gray}{Datasets}
     \end{itemize}
 \end{frame}
 \begin{frame}{Deep Ensembles}
@@ -244,12 +247,12 @@
         \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Flipout}
+\begin{frame}{Bayesian Neural Networks - Flipout}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{itemize}
                 \item Introduced as a method to decorrelate gradients in a mini-batch of examples
-                \item Add independent weight perturbations sampled from a distribution
+                \item Adds independent weight perturbations sampled from prior distribution
                 \item Train \textbf{single instance} of Flipout versioned network and then \textbf{perform multiple forward passes} for same input
             \end{itemize}
         \end{column}
@@ -264,13 +267,21 @@
         \end{column}
     \end{columns}
 \end{frame}
+\begin{frame}{Bayesian Neural Networks - Flipout}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.35]{images/fout_randlanet.png}
+        \caption{Flipout-versioned RandLA-Net where the last three FC layers as depicted in red box are made
+        Flipout-compatible. Image taken from \cite{Hu_2020_CVPR_Randla}.}
+    \end{figure}
+\end{frame}
 \begin{frame}[noframenumbering]{Setup}
     \begin{itemize}
         
         \item \textcolor{gray}{3D Semantic Segmentation model - RandLA-Net}
         \item \textcolor{gray}{Uncertainty methods - Deep Ensembles \& Flipout}
         \item OOD score methods
-        \item Datasets
+        \item \textcolor{gray}{Datasets}
     \end{itemize}
 \end{frame}
 \begin{frame}{OOD Score calculation}
@@ -308,10 +319,10 @@
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{itemize}
-                \item Huge 3D point cloud benchmark classification static dataset with 4 million points
-                \item Scenes are taken in european streets around church, stations and fields
+                \item 3D point cloud benchmark dataset with 4 million points
+                \item Scenes are captured around european streets including church, stations and fields
                 \item Point features include XYZ, RGB and Intensity values.
-                \item It has 8 classes with distribution of points represented in Figure~\ref{fig:sem3d_stats}
+                \item It has 8 classes with distribution of points represented in adjacent figure
                 \item \cite{hackel2017semantic3d} states that the scanning artefacts, hardscapes and cars are the most challenging classes
             \end{itemize}
         \end{column}
@@ -361,12 +372,12 @@
             \begin{itemize}
                 \item Indoor dataset with scans from various buildings
                 \item Dataset include scans of personal offices, restrooms, open spaces, lobbies and hallways
-                \item It has 12 classes, further subdivided into two types
+                \item It has 12 classes, further divided into two types
                 \begin{itemize}
                     \item structural elements 
                     \item everyday items
                 \end{itemize}
-                \item One of the most evaluated datasets for indoor semantic segmentation
+                \item One of the most used dataset for indoor semantic segmentation
             \end{itemize}
         \end{column}
         \begin{column}{0.4\textwidth}
@@ -398,7 +409,7 @@
                                                                                                                                                                                        
         \end{tabular}
         }
-        \caption{Table representing the ID dataset and corresponding OOD datasets, difficulty in OOD detection and the summary of reasons to chose this OOD dataset.}
+        \caption{Table representing the ID dataset and corresponding OOD datasets, difficulty in OOD detection and the reasons to chose this OOD dataset.}
         \label{tab:OOD_reasons}
         \end{table}
 \end{frame}
@@ -699,7 +710,7 @@
 \section{Conclusion}
 \begin{frame}{Conclusion}
     \begin{itemize}
-        \item We propose two benchmark datasets 
+        \item We propose two datasets for OOD benchmarking
         \begin{itemize}
             \item Semantic3D-vs-S3DIS (Outdoor-vs-Indoor) - Easy OOD identification
             \item Semantic3D-vs-Semantic3D without colour - Hard OOD identification
@@ -711,18 +722,18 @@
 \end{frame}
 \begin{frame}{Lessons Learned}
     \begin{itemize}
-        \item Training and evaluation of 3D DNNs are time-consuming and resource-intensive.
-        \item Finding the proper prior for Flipout layers is hard and currently we use brute force to find the best fitting prior.
+        \item Training and evaluation of 3D DNNs are time-consuming and resource-intensive
+        \item Finding the proper prior for Flipout layers is hard
         %\item OOD benchmarking require in depth analysis of datasets like studying the structural similarties in the datasets and also colour spectrum.
-        \item LiDAR datasets have large memory requirements especially for preprocessing and metric computation.
-        \item Getting 100\% OOD detection performance is not possible with the post-hoc methods used as some points in the ID dataset also have low probability scores.
+        \item LiDAR datasets have large memory requirements especially for pre-processing and metric computation
+        \item Getting 100\% OOD detection performance is not possible with the post-hoc methods 
     \end{itemize}
 \end{frame}
 \begin{frame}{Future Work}
     \begin{itemize}
-        \item This thesis is limited to only point-based models, this can be extended to graph and projection-based models.
-        \item The datasets involved are only static datasets and this thesis study can be further extended to other type of datasets such as synthetic and sequential datasets.
-        \item Since this thesis utilizes post-hoc threshold methods for OOD detection. Other methods such as Mahalanobis distance-based OOD detection \cite{lee2018simple_mahalanobis} or MetaSeg \cite{MetaSeg} can be added as an extension to this thesis.
+        \item This thesis is limited to only point-based models, this can be extended to graph and projection-based models
+        \item The datasets involved are only static datasets and this thesis study can be further extended to other type of datasets such as synthetic and sequential datasets
+        \item Similar post-hoc methods like Mahalanobis distance-based OOD detection \cite{lee2018simple_mahalanobis} or MetaSeg \cite{MetaSeg} can be added as an extension to this thesis
     \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -738,14 +749,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%        Extra slides           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[noframenumbering]{What is OOD Detection?}
-    \begin{figure}
-        \centering
-        \includegraphics[scale=0.3]{images/OOD_ex_new.jpg}
-        \caption{Generalized Out-of-Distribution Detection: A Survey}
-        \label{fig:my_label}
-    \end{figure}
-\end{frame}
 
 \begin{frame}[noframenumbering]{Semantic3D-Deep Ensembles}
     \begin{figure}
@@ -757,6 +760,21 @@
     \begin{figure}
         \centering
         \includegraphics[scale=0.4]{images/Semantic3d_Fout.jpg}
+    \end{figure}
+\end{frame}
+\begin{frame}[noframenumbering]{OOD vs Anomaly}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{images/OOD_ex_new.jpg}
+        %\caption{Generalized Out-of-Distribution Detection: A Survey}
+        \caption{Image representing OOD vs Anomaly vs Novelty detection. Image taken from \cite{yang2021generalized}.}
+        \label{fig:my_label}
+    \end{figure}
+\end{frame}
+\begin{frame}{OOD vs Anomaly}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{images/anomalyvsood.png}
     \end{figure}
 \end{frame}
 \end{document}
